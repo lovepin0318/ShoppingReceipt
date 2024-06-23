@@ -11,20 +11,10 @@ public class BaseResponse<T> {
 
 	T data;
 
-<<<<<<< HEAD
-	public BaseResponse(Integer code, String msg) {
-		this.code = code;
-		this.msg = msg;
-	}
-
-	public BaseResponse() {
-	}
-=======
     public BaseResponse(Integer code, String msg) {
         this.code = code;
         this.msg = msg;
     }
     public BaseResponse() {}
->>>>>>> cd13b59 (try catch 調整)
 
 }
