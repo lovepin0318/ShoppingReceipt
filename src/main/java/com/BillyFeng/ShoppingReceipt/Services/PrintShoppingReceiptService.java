@@ -38,7 +38,7 @@ public class PrintShoppingReceiptService {
 			BigDecimal tax = calculateTax(price, quantity, taxRate);
 			totalTax = totalTax.add(tax);
 
-			receipt.append("Item Name: " + name + " , Quantity: " + quantity + " , Price: " + price + " , Total Count: "
+			receipt.append("Item Name: " + name + " , Quantity: " + quantity + " , Price: " + price + " , Sub Total Count: "
 					+ totalcount + " \n");
 		}
 
@@ -53,11 +53,7 @@ public class PrintShoppingReceiptService {
 
 	private BigDecimal calculateTax(BigDecimal price, int quantity, BigDecimal taxRate) {
 		BigDecimal tax = price.multiply(new BigDecimal(quantity)).multiply(taxRate);
-		return roundUpTax(tax);
+		return tax.setScale(2, RoundingMode.UP);
 	}
 
-	private BigDecimal roundUpTax(BigDecimal tax) {
-		return tax.setScale(2, RoundingMode.UP).multiply(new BigDecimal("20")).setScale(0, RoundingMode.UP)
-				.divide(new BigDecimal("20"), 2, RoundingMode.UP);
-	}
 }
