@@ -11,7 +11,10 @@ import lombok.Data;
 public class PrintShoppingReceiptVo {
 
 	private String name;
+
 	private BigDecimal price;
+
 	private int quantity;
+
 	private String location;
 }
