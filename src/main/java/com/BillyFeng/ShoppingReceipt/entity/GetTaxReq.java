@@ -1,14 +1,14 @@
-package com.BillyFeng.ShoppingReceipt.entity;
+package com.billyfeng.shoppingreceipt.entity;
 
 import java.util.List;
-
-import com.BillyFeng.ShoppingReceipt.Vo.PrintShoppingReceiptVo;
-
+import com.billyfeng.shoppingreceipt.vo.PrintShoppingReceiptVo;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
 public class GetTaxReq {
 
-	private List<PrintShoppingReceiptVo> list;
+  @NotBlank(message = "Invalid input: Is null")
+  private List<PrintShoppingReceiptVo> list;
 
 }

@@ -1,20 +1,21 @@
-package com.BillyFeng.ShoppingReceipt.Vo;
+package com.billyfeng.shoppingreceipt.vo;
 
 import java.math.BigDecimal;
-
-import org.springframework.stereotype.Component;
-
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-@Component
 public class PrintShoppingReceiptVo {
 
-	private String name;
+  @NotBlank(message = "Invalid input: Parameter Name Is null")
+  private String name;
 
-	private BigDecimal price;
+  @NotBlank(message = "Invalid input: Parameter Price Is null")
+  private BigDecimal price;
 
-	private int quantity;
+  @NotBlank(message = "Invalid input: Parameter Quantity Is null")
+  private int quantity;
 
-	private String location;
+  @NotBlank(message = "Invalid input: Parameter Location Is null")
+  private String location;
 }

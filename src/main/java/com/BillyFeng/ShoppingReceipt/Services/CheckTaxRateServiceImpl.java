@@ -1,4 +1,4 @@
-package com.BillyFeng.ShoppingReceipt.Services;
+package com.billyfeng.shoppingreceipt.services;
 
 import java.math.BigDecimal;
 import org.springframework.stereotype.Service;
@@ -12,13 +12,11 @@ public class CheckTaxRateServiceImpl implements CheckTaxRateService {
   @Override
   public BigDecimal getSubTaxRate(String location, String name) {
     BigDecimal taxRate = BigDecimal.ZERO;
-
     switch (location.toUpperCase()) {
       case "CA" -> taxRate = isExempt(location, name) ? BigDecimal.ZERO : CA_TAX_RATE;
       case "NY" -> taxRate = isExempt(location, name) ? BigDecimal.ZERO : NY_TAX_RATE;
       default -> taxRate = BigDecimal.ZERO;
     }
-
     return taxRate;
   }
 

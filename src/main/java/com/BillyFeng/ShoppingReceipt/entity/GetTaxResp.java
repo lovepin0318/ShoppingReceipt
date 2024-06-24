@@ -1,19 +1,18 @@
-package com.BillyFeng.ShoppingReceipt.entity;
+package com.billyfeng.shoppingreceipt.entity;
 
 import java.math.BigDecimal;
 import java.util.List;
-
 import lombok.Data;
 
 @Data
 public class GetTaxResp {
 
-	private List<BaseItem> list;
+  private List<BaseItem> list;
 
-	private BigDecimal subtotal;
+  private BigDecimal subtotal;
 
-	private BigDecimal tax;
+  private BigDecimal tax;
 
-	private BigDecimal total;
+  private BigDecimal total;
 
 }

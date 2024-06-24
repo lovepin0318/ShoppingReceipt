@@ -1,8 +1,8 @@
-package com.BillyFeng.ShoppingReceipt.Services;
+package com.billyfeng.shoppingreceipt.services;
 
 import java.math.BigDecimal;
 
 public interface CheckTaxRateService {
 
-  public BigDecimal getSubTaxRate(String location, String name);
+  BigDecimal getSubTaxRate(String location, String name);
 }

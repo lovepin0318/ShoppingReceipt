@@ -1,19 +1,17 @@
-package com.BillyFeng.ShoppingReceipt.Services;
+package com.billyfeng.shoppingreceipt.services;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
-import com.BillyFeng.ShoppingReceipt.Vo.PrintShoppingReceiptVo;
-import com.BillyFeng.ShoppingReceipt.entity.BaseItem;
-import com.BillyFeng.ShoppingReceipt.entity.BaseResponse;
-import com.BillyFeng.ShoppingReceipt.entity.GetTaxReq;
-import com.BillyFeng.ShoppingReceipt.entity.GetTaxResp;
+import com.billyfeng.shoppingreceipt.entity.BaseItem;
+import com.billyfeng.shoppingreceipt.entity.BaseResponse;
+import com.billyfeng.shoppingreceipt.entity.GetTaxReq;
+import com.billyfeng.shoppingreceipt.entity.GetTaxResp;
+import com.billyfeng.shoppingreceipt.vo.PrintShoppingReceiptVo;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -21,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CheckServiceImpl implements CheckService {
 
   @Autowired
-  CheckTaxRateService checkTaxRateService;
+  private CheckTaxRateService checkTaxRateService;
 
   @Override
   public BaseResponse<GetTaxResp> getTaxRate(GetTaxReq req) {
@@ -30,24 +28,10 @@ public class CheckServiceImpl implements CheckService {
     List<BaseItem> respList = new ArrayList<>();
 
     try {
-      if (Objects.isNull(req) || CollectionUtils.isEmpty(req.getList())) {
-        resp.setCode(-1);
-        resp.setMsg("Invalid input: Is null");
-        return resp;
-      }
-
       BigDecimal subtotal = BigDecimal.ZERO;
       BigDecimal totalTax = BigDecimal.ZERO;
 
       for (PrintShoppingReceiptVo obj : req.getList()) {
-
-        if (Objects.isNull(obj.getName()) || Objects.isNull(obj.getPrice())
-            || Objects.isNull(obj.getQuantity()) || Objects.isNull(obj.getLocation())) {
-          resp.setCode(-1);
-          resp.setMsg("Invalid input: Parameter Is null");
-          return resp;
-        }
-
         BaseItem baseItem = new BaseItem();
         BeanUtils.copyProperties(obj, baseItem);
 

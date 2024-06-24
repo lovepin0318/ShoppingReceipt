@@ -1,8 +1,8 @@
-package com.BillyFeng.ShoppingReceipt.Services;
+package com.billyfeng.shoppingreceipt.services;
 
-import com.BillyFeng.ShoppingReceipt.entity.BaseResponse;
-import com.BillyFeng.ShoppingReceipt.entity.GetTaxReq;
-import com.BillyFeng.ShoppingReceipt.entity.GetTaxResp;
+import com.billyfeng.shoppingreceipt.entity.BaseResponse;
+import com.billyfeng.shoppingreceipt.entity.GetTaxReq;
+import com.billyfeng.shoppingreceipt.entity.GetTaxResp;
 
 
 public interface CheckService {

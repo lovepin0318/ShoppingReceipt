@@ -1,4 +1,4 @@
-package com.BillyFeng.ShoppingReceipt.entity;
+package com.billyfeng.shoppingreceipt.entity;
 
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;

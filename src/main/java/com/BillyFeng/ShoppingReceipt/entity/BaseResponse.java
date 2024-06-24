@@ -1,4 +1,4 @@
-package com.BillyFeng.ShoppingReceipt.entity;
+package com.billyfeng.shoppingreceipt.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class BaseResponse<T> {
 
-  Integer code = 0;
+  private Integer code = 0;
 
-  String msg = "success";
+  private String msg = "success";
 
-  T data;
+  private T data;
 
   public BaseResponse(Integer code, String msg) {
     this.code = code;
