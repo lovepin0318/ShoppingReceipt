@@ -23,14 +23,6 @@ public class CheckServiceImpl implements CheckService {
 	@Autowired
 	CheckTaxRateService checkTaxRateService;
 
-	private static BigDecimal CA_TAX_RATE = new BigDecimal("0.0975");
-
-	private static BigDecimal NY_TAX_RATE = new BigDecimal("0.08875");
-
-	private final String CA = "ca";
-
-	private final String NY = "ny";
-
 	@Override
 	public BaseResponse<GetTaxResp> getTaxRate(GetTaxReq req) {
 		BaseResponse<GetTaxResp> resp = new BaseResponse<>();
@@ -51,7 +43,7 @@ public class CheckServiceImpl implements CheckService {
 				BaseItem baseItem = new BaseItem();
 				BeanUtils.copyProperties(obj, baseItem);
 				
-				BigDecimal subtaxrate = checkTaxRateService.getTaxRate(obj.getLocation(), obj.getName());
+				BigDecimal subtaxrate = checkTaxRateService.getSubTaxRate(obj.getLocation(), obj.getName());
 				baseItem.setTax(calculateTax(obj.getPrice(), obj.getQuantity(), subtaxrate));
 
 				respList.add(baseItem);

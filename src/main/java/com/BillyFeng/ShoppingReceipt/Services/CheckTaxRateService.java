@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 public class CheckTaxRateService {
 
 	private static final BigDecimal CA_TAX_RATE = new BigDecimal("0.0975");
+	
 	private static final BigDecimal NY_TAX_RATE = new BigDecimal("0.08875");
 
-	public BigDecimal getTaxRate(String location, String name) {
+	public BigDecimal getSubTaxRate(String location, String name) {
 		BigDecimal taxRate = BigDecimal.ZERO;
 		switch (location.toUpperCase()) {
 		case "CA":
