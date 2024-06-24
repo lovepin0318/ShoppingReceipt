@@ -1,20 +1,23 @@
 package com.BillyFeng.ShoppingReceipt.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class BaseResponse<T> {
 
-	Integer code = 0;
+  Integer code = 0;
 
-	String msg = "success";
+  String msg = "success";
 
-	T data;
+  T data;
 
-    public BaseResponse(Integer code, String msg) {
-        this.code = code;
-        this.msg = msg;
-    }
-    public BaseResponse() {}
+  public BaseResponse(Integer code, String msg) {
+    this.code = code;
+    this.msg = msg;
+  }
 
 }
