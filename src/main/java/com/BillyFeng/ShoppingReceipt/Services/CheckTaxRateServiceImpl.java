@@ -14,23 +14,19 @@ public class CheckTaxRateServiceImpl implements CheckTaxRateService {
     BigDecimal taxRate = BigDecimal.ZERO;
 
     switch (location.toUpperCase()) {
-      case "CA" -> taxRate = CA_TAX_RATE;
-      case "NY" -> taxRate = NY_TAX_RATE;
+      case "CA" -> taxRate = isExempt(location, name) ? BigDecimal.ZERO : CA_TAX_RATE;
+      case "NY" -> taxRate = isExempt(location, name) ? BigDecimal.ZERO : NY_TAX_RATE;
       default -> taxRate = BigDecimal.ZERO;
     }
 
-    if (isExempt(location, name)) {
-      taxRate = BigDecimal.ZERO;
-    }
     return taxRate;
   }
 
   private boolean isExempt(String location, String name) {
     String lowerName = name.toLowerCase();
-    if ("CA".equalsIgnoreCase(location) && lowerName.contains("food")) {
-      return true;
-    } else if ("NY".equalsIgnoreCase(location)
-        && (lowerName.contains("food") || lowerName.contains("clothing"))) {
+    if (("CA".equalsIgnoreCase(location) && lowerName.contains("food"))
+        || ("NY".equalsIgnoreCase(location)
+            && (lowerName.contains("food") || lowerName.contains("clothing")))) {
       return true;
     }
     return false;
